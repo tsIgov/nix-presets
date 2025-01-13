@@ -19,6 +19,10 @@
 	{
 		inherit lib;
 
+		systemModules = {
+			nvidia = internalUtils.createModule ./modules/nvidia null;
+		};
+
 		userModules = {
 			browsers = internalUtils.createModule ./modules/browsers browsers-pkgs;
 		} ;

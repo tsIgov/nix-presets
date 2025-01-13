@@ -7,7 +7,7 @@ let
 			modules = lib.getNixFilesRecursively path;
 		in
 		{ 
-			imports = (builtins.map (file: import file newArgs) modules); 
+			imports = if pkgs == null then modules else (builtins.map (file: import file newArgs) modules); 
 		};
 in
 {
