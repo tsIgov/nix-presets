@@ -7,7 +7,7 @@ in
 {
 	options.presets.nvidia = with lib; with types; {
 		drivers = mkOption { type = enum [ "nvidiaOpen" "nvidia" "nouveau" "disabled" null ]; default = null; };
-		prime = mkOption { type = enum [ "offload" "sync" "reveseSync" "disabled"]; default = "disabled"; };
+		prime = mkOption { type = enum [ "offload" "sync" "reverseSync" "disabled"]; default = "disabled"; };
 	};
 
 	config = lib.mkIf (cfg.drivers != null) {
@@ -38,7 +38,7 @@ in
 					};
 
 					sync.enable = lib.mkIf (cfg.prime == "sync") true;
-					reverseSync.enable = lib.mkIf (cfg.prime == "reveseSync") true;
+					reverseSync.enable = lib.mkIf (cfg.prime == "reverseSync") true;
 				}
 			);
 		};
