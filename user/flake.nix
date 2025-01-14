@@ -3,6 +3,7 @@
 
 	inputs = {
 		lib.url = "github:nixos/nixpkgs/nixos-unstable";
+
 		browsers.url = "github:nixos/nixpkgs/nixos-unstable";
 		photography.url = "github:nixos/nixpkgs/nixos-unstable";
 	};
@@ -21,17 +22,11 @@
 	{
 		inherit lib;
 
-		systemModules = rec {
-			nvidia = internalUtils.createModule ./modules/nvidia null;
-
-			all = { ... }: { imports = [ nvidia ]; };
-		};
-
-		userModules = rec {
-			browsers = internalUtils.createModule ./modules/browsers browsers-pkgs;
-			photography = internalUtils.createModule ./modules/photography photography-pkgs;
-
-			all = { ... }: { imports = [ browsers photography ]; };
+		module = {
+			imports = [ 
+				(internalUtils.createModule ./modules/browsers browsers-pkgs)
+				(internalUtils.createModule ./modules/photography photography-pkgs)
+			];
 		};
 	};
 }
