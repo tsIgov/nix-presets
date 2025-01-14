@@ -18,6 +18,7 @@
 
 		module = {
 			imports = [
+				(internalUtils.createModule ./modules/garbageCollection null)
 				(internalUtils.createModule ./modules/nvidia null)
 			];
 		};
