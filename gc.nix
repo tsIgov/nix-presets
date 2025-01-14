@@ -47,3 +47,19 @@ in
 		};
 	};
 }
+
+
+# #!/bin/bash
+# # Define the number of generations to keep
+# GENERATIONS_TO_KEEP=10
+
+# # Loop through all users
+# for USER_HOME in /home/*; do
+#     if [ -d "$USER_HOME" ]; then
+#         USERNAME=$(basename "$USER_HOME")
+#         echo "Processing user: $USERNAME"
+
+#         # Run home-manager cleanup commands as the user
+#         sudo -u "$USERNAME" nix-env --delete-generations +"$GENERATIONS_TO_KEEP"
+#     fi
+# done
