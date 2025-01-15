@@ -1,25 +1,15 @@
 {
 	description = "Personal NixOS presets";
 
-	inputs = {
-		lib.url = "github:nixos/nixpkgs/nixos-unstable";
-	};
-
 	outputs = inputs:
 	let
-		system = "x86_64-linux";
-		importArguments = { inherit system; config.allowUnfree = true; };
-
-		lib = import ./utilities/lib.nix { nixpkgs = inputs.lib; };
-		internalUtils = import ./utilities/internal.nix { inherit lib; };
+		addPreset = import ./utilities/addPreset.nix;
 	in
 	{
-		inherit lib;
-
 		module = {
 			imports = [
-				(internalUtils.createModule ./modules/garbageCollection null)
-				(internalUtils.createModule ./modules/nvidia null)
+				(addPreset ./modules/garbageCollection null)
+				(addPreset ./modules/nvidia null)
 			];
 		};
 	};
