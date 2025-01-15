@@ -5,5 +5,5 @@
 		if pkgs == null then 
 			lib.moduleUtils.listModulesRecursively path
 		else 
-			lib.moduleUtils.createRecursiveModuleWithOverrides path { inherit pkgs;};
+			[ (lib.moduleUtils.createRecursiveModuleWithOverrides path { inherit pkgs;}) ];
 }
