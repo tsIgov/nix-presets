@@ -1,6 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, config, lib, ... }:
+let
+	cfg = config.presets.browsers;
+in
 {
-	programs.firefox = {
+	programs.firefox = lib.mkIf cfg.enable {
 		enable = true;
 		package = pkgs.firefox;
 		policies = {
