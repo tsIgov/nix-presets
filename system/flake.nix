@@ -10,6 +10,7 @@
 			imports = [
 				(addPreset ./modules/garbageCollection null)
 				(addPreset ./modules/nvidia null)
+				(addPreset ./modules/softwareDevelopment null)
 			];
 		};
 	};
