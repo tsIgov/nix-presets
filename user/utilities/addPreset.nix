@@ -1,9 +1,9 @@
  path: pkgs: 
-{lib, ...}@args: 
+{ aetherLib, ... }@args: 
 { 
 	imports = 
 		if pkgs == null then 
-			lib.moduleUtils.listModulesRecursively path
+			aetherLib.moduleUtils.listModulesRecursively path
 		else 
-			[ (lib.moduleUtils.createRecursiveModuleWithOverrides path { inherit pkgs;}) ];
+			[ (aetherLib.moduleUtils.createRecursiveModuleWithOverrides path { inherit pkgs;}) ];
 }
