@@ -16,8 +16,8 @@ in
 			cert = cfg.syncthing.certPath;
 			key = cfg.syncthing.keyPath;
 			guiAddress = "127.0.0.1:${toString cfg.syncthing.port}";
-			overrideDevices = true;
-			overrideFolders = true;
+			overrideDevices = false;
+			overrideFolders = false;
 			settings = {
 				devices = {
 					phone = {
