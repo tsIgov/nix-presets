@@ -6,6 +6,7 @@
 		communication.url = "github:nixos/nixpkgs/nixos-unstable";
 		photography.url = "github:nixos/nixpkgs/nixos-unstable";
 		digitalBrain.url = "github:nixos/nixpkgs/nixos-unstable";
+		music.url = "github:nixos/nixpkgs/nixos-unstable";
 		softwareDevelopment.url = "github:nixos/nixpkgs/nixos-unstable";
 	};
 
@@ -19,6 +20,7 @@
 		communication-pkgs = import inputs.communication importArguments;
 		photography-pkgs = import inputs.photography importArguments;
 		digitalBrain-pkgs = import inputs.digitalBrain importArguments;
+		music-pkgs = import inputs.music importArguments;
 		softwareDevelopment-pkgs = import inputs.softwareDevelopment importArguments;
 	in
 	{
@@ -28,6 +30,7 @@
 				(addPreset ./modules/communication communication-pkgs)
 				(addPreset ./modules/digitalBrain digitalBrain-pkgs)
 				(addPreset ./modules/photography photography-pkgs)
+				(addPreset ./modules/music music-pkgs)
 				(addPreset ./modules/softwareDevelopment softwareDevelopment-pkgs)
 			];
 		};
