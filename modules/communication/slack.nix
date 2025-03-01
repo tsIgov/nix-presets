@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 let
-	cfg = config.presets.communication;
+	cfg = config.presets.communication.slack;
 in
 {
-	config = lib.mkIf (cfg.enable && cfg.slack.enable) {
+	config = lib.mkIf (cfg.enable) {
 		home.packages = with pkgs; [
 			(slack.overrideAttrs (oldAttrs: {
 				buildInputs = oldAttrs.buildInputs or [] ++ [ pkgs.makeWrapper ];
